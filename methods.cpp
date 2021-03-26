@@ -113,11 +113,36 @@ string print()
 {
 	for(int s=0; s<tags.size();s++)
 	{
-		std::string strt=tags[i].
+		std::string strtag=tags[i].tagname;
+		int inpair=tags[i].tagpair;
+		std::string strtxt=tags[i].txt;
+		std::cout << strtag<< ", "<< inpair<<", "<<strtxt<< std::endl;
 	}
 
 }
+dump()
+{
+	//Create and open a text file
+	ofstream myFile("tag.txt");
+	//write to file
+	for(int t=0; t<tags.size();t++)
+	{
+		std::string sttag=tags[i].tagname;
+		int ipair=tags[i].tagpair;
+		std::string sttxt=tags[i].txt;
+		myFile << sttag<< ", "<<ipair<<", "<<sttxt<<std::endl;
+	}
+	myFile.close();
+}
+std::string list(std::string)
+{
 
+
+}
+quit()
+{
+	return 1;
+}
 
 
 
