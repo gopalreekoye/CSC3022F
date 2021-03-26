@@ -15,11 +15,11 @@
 
 //to read and parse a specified input file
 
-readfile(string txt);
+readFile(string txt);
 
 //to print all tags
 
-string print();
+std::string print();
 
 //dump/write tags and data to  file called tag.txt
 
@@ -27,7 +27,7 @@ dump();
 
 //list/print tag data for a given tag
 
-string dump(TagStruct tagstruct);
+std:: string list(string str);
 
 //quit-terminate the input loop and exit
 

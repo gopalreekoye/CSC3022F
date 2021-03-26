@@ -109,7 +109,7 @@ readFile(string txt)
 
 }
 
-string print()
+std::string print()
 {
 	for(int s=0; s<tags.size();s++)
 	{
