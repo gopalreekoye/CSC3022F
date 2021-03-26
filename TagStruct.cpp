@@ -5,13 +5,13 @@
 
 
 #include <iostream>
-
+#include <string>
 
 struct TagStruct
 {
-	string tagname;
+	std::string tagname;
 	int tagpair;
-	string txt;
+	std::string txt;
 };
 
 

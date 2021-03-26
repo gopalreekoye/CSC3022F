@@ -26,35 +26,100 @@ readFile(string txt)
 		return 1;
 	}
 	int txtnum= 0;
-	std::string text = "";
-	std::string tagtxt = "";
-	std::string line;
-	
+	std::vector<std::string> tagArray;
+	std::vector<std::string> tagArray1;
+	std::vector<int> counterArray;
 	while(std::getline(reading, line))
 	{
-		
-		std::string tagname;
-		int tagpair;
-		int n= line.length();
-
-		if(line.substr(0,4)=="<TXT>")
+		unsigned first = line.find(<);
+		unsigned last = line.find(>);
+		std::string strNew = line.substr(first, last);
+		tagArray.push_back(strNew);
+		tagArray1.push_back(strNew);
+	}
+	for(int i=0; i<tagArray.size();i++)
+	{
+		for(int j=0;j<tagArray.size();i++)
 		{
-			tagname=line.substr(1,3);
-			txtnum++;
-			text.append(":");
-			text.append(line.substr(5,(n-6)));
+			if(i==j)
+			{
+				continue;
+			}
+			else
+			{
+				if(tagArray[i]==tagArray[j])
+				{
+					tagArray1.erase(i);
+				}
+				else
+				{
+					continue;
+				}
+			}
 
 		}
-		else if(line.substr(0,3)=="<TAG")
-		{}
-
-		tags.push_back({});
 	}
-	tags.push_back({tagname, txtnum, text});
+	for(i=0; i<tagArray1.size();i++)
+	{
+		counterArray[i]=0;
 
-	reading.close();
+	}
+	for(i=0; i<tagArray1.size();i++)
+	{
+		for(j=0; j<tagArray.size;j++)
+		{
+			if(tagArray1[i]==tagArray[j])
+			{
+				counterArray[i]++;
+			}
+		}
+	}
+	std::vector<std::string> text;
+	for(i=0; i<tagArray1.size();i++)
+	{
+		text[i]="";
+	}
+
+	while(std::getline(reading, line))
+	{
+		unsigned first = line.find(<);
+		unsigned last = line.find(>);
+		int len=last+1;
+		int n=line.size();
+		std::string strN=line.substring(first, last);
+		for(i=0; i<tagArray1.size();i++)
+		{
+			if(tagArray1[i]== strN)
+			{
+				std::string txt=line.substring(last, (n-len-2));
+				text[i].append(" :"<<txt);
+			}
+			else{continue;}
+
+		}
+	}
+	for(i=0; i<tagArray1.size();i++)
+	{
+		tags.push_back({tagArray1[1], counterArray[i], text[i]})
+	}
+
 	
 
-
+	reading.close()
 
 }
+
+string print()
+{
+	for(int s=0; s<tags.size();s++)
+	{
+		std::string strt=tags[i].
+	}
+
+}
+
+
+
+
+
+
